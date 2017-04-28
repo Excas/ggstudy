@@ -8,25 +8,24 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
-    </div>
-    <div id="app2">
-        <span v-bind:title="message">
-            鼠标悬停
-        </span>
+        <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
     </div>
     <script src="https://unpkg.com/vue@2.3.0/dist/vue.js"></script>
     <script>
+        
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{ todo.text}}</li>'
+        })
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'hellow vue'
-            }
-        })
-        var app2 = new Vue({
-            el: '#app2',
-            data: {
-                message: 'the page load on ' + new Date()
+                groceryList: [
+                    {text: '菜呀'},
+                    {text: '菜呀'},
+                    {text: '菜呀'},
+                    {text: '菜呀'},
+                ]
             }
         })
     </script>
