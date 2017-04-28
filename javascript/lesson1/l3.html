@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤器</title>
+</head>
+<body>
+    <div id="app">
+        <span>{{message | capitalize}}</span>
+    </div>
+    <script src="https://unpkg.com/vue@2.3.0/dist/vue.js"></script>
+    <script>
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'ohmalimalihome'
+            },
+            filters: {
+                capitalize: function (value) {
+                    if (!value) {
+                        return ""
+                    }
+                    value = value.toString();
+                    return value.charAt(0).toUpperCase() + value.slice(1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind 指令缩写</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 完整 -->
+        <a v-bind:href="url">blabla</a>
+        <!-- 缩写 -->
+        <a v-bind:href="url">blabla</a>
+
+        <!-- 完整 -->
+        <a v-on:click="doSomethingBig">blabla</a>
+        <!-- 缩写 -->
+        <a @click="doSomethingBig">blabla</a>
+    </div>
+    <script src="https://unpkg.com/vue@2.3.0/dist/vue.js"></script>
+    <script>
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                url: 'abc.com',
+                message: 'ohmalimalihome'
+            },
+            filters: {
+                capitalize: function (value) {
+                    if (!value) {
+                        return ""
+                    }
+                    value = value.toString();
+                    return value.charAt(0).toUpperCase() + value.slice(1)
+                }
+            },
+            methods: {
+                doSomethingBig: function () {
+                    console.log('so big');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
